@@ -1,0 +1,36 @@
+{% extends 'html/main.html' %}
+{% load static %}
+
+{% block content %}
+    <style type="text/css">
+        #id_tags {
+            overflow-y: scroll;
+            max-height: 100px;
+            border-radius: 5px;
+            padding: 5px
+        }
+    </style>
+    <div class='main-container'>
+        <div class='post-wrapper'>
+            {% for car in cars %}
+                <div>
+                    <div class='post'>
+                        <div class='post-preview'>
+                            <h6 class='post-title'>{{ car.car_name }}</h6>
+                            <a href="{% url 'car_detail' car.id %}">Read More</a>
+                            | <a href="{% url 'update_car' car.id %}">Update</a>
+                            | <a href="{% url 'delete_car' car.id %}">Delete</a>
+                            <hr>
+                                <span class='tag'>{{ car.car_color }}</span>
+                                <span class='tag'>{{ car.date_manufactured }}</span>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <section class="s1">
+        {% include 'html/footer.html' %}
+    </section>
+{% endblock content %}

@@ -1,0 +1,26 @@
+{% extends 'html/main.html' %}
+{% load static %}
+{% block content %}
+
+    <style type="text/css">
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 100%;
+            object-fit: cover;
+        }
+
+    </style>
+    <div class='main-container'>
+        <img class='thumbnail' src="{{ post.image.url }}" alt="">
+        <h1>{{ car.car_name }}</h1>
+        <h4>{{ car.car_model }}</h4>
+        <span class='tag'>{{ car.car_color }}</span>
+        <p>
+            {{ car.car_description|linebreaks }}
+        </p>
+        <a href="{% url 'cars_list' %}" class='btn btn-info'>Back</a>
+    </div>
+
+{% endblock content %}

@@ -1,0 +1,14 @@
+{% extends 'html/main.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="main-container">
+    <h3>Are you sure you want to delete {{ car.car_name }}?</h3>
+    <form class='createForm' action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input class='btn btn-danger' type="submit" value="Submit">
+    </form>
+</div>
+
+{% endblock content %}

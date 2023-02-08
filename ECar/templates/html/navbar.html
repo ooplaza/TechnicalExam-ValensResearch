@@ -1,0 +1,16 @@
+{% load static %}
+<div class="nav-wrapper">
+    <a href="{% url 'home' %}">
+        <div class="logo-wrapper">
+            <h2>VALENS</h2>
+        </div>
+    </a>
+    <ul id="navigation">
+        {% if request.user.is_authenticated %}
+            <li><a href="{% url 'create_car' %}">Create Car</a></li>
+        {% endif %}
+        <li><a href="{% url 'red_cars' %}">Show Red Cars</a></li>
+        <li><a href="{% url 'blue_cars' %}">Show Blue Cars</a></li>
+    </ul>
+
+</div>

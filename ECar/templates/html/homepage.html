@@ -1,0 +1,68 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=Russo+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/default.css' %}">
+    <title>Research Valens</title>
+</head>
+<body>
+
+    {% include 'html/navbar.html' %}
+    {% block content %}
+        
+    <section class="s1">
+		<div class="main-container">
+            <div class="greeting-wrapper">
+                <h1><span class='input'></span></h1>
+            </div>
+
+			<div class='post-wrapper'>
+                {% for car in cars %}
+                    <div>
+                        <div class='post'>
+                            <img class='thumbnail' src="{{ post.image.url }}" alt="">
+                            <div class='post-preview'>
+                                <h6 class='post-title'>{{ car.car_name }}</h6>
+                                <p class='post-intro'>{{ car.car_model }}</p>
+                                <a href="{% url 'car_detail' car.id %}">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                        <h3>No Cars Available Right Now ...</h3>
+                {% endfor %}
+			</div>
+			<!-- Link to Posts -->
+			<p align='center'>
+				<a class='btn btn-info' href="{% url 'cars_list' %}">View More</a>
+			</p>
+		</div>
+	</section>
+
+    <section class="s1">
+        {% include 'html/footer.html' %}
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script type="text/javascript">
+		let static = "{% static 'css' %}"
+        let typed = new Typed(".input", {
+            strings:["Welcome to Valens Research an E-CAR Laboratory.", "A top-notch Product Producer.", "Thank you for visiting."],
+            typeSpeed: 70,
+            backSpeed: 60,
+            loop: true
+        });
+	</script>
+    {% endblock content %}
+    
+</body>
+</html>
