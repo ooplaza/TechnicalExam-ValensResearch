@@ -29,7 +29,7 @@
                 {% for car in cars %}
                     <div>
                         <div class='post'>
-                            <img class='thumbnail' src="{{ post.image.url }}" alt="">
+                            <img class='thumbnail' src="{{ car.image.url }}" alt="">
                             <div class='post-preview'>
                                 <h6 class='post-title'>{{ car.car_name }}</h6>
                                 <p class='post-intro'>{{ car.car_model }}</p>
@@ -43,7 +43,7 @@
 			</div>
 			<!-- Link to Posts -->
 			<p align='center'>
-				<a class='btn btn-info' href="{% url 'cars_list' %}">View More</a>
+				<a class='btn btn-outline-info' href="{% url 'cars_list' %}">View More</a>
 			</p>
 		</div>
 	</section>

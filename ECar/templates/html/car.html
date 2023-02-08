@@ -19,6 +19,7 @@
         <span class='tag'>{{ car.car_color }}</span>
         <p>
             {{ car.car_description|linebreaks }}
+            {{ car.date_manufactured }}
         </p>
         <a href="{% url 'cars_list' %}" class='btn btn-info'>Back</a>
     </div>

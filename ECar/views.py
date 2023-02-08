@@ -50,18 +50,18 @@ class CreateCar(LoginRequiredMixin, CreateView):
     """ This class is responsible for creating a Car, it has also a Authentication"""
     model = Car
     template_name = 'html/create.html'
-    fields = ['car_name', 'car_model', 'car_description', 'car_color']
+    fields = ['car_name', 'car_model', 'car_description','image', 'car_color']
 
 
 class UpdateCar(LoginRequiredMixin, UpdateView):
     """ This class is responsible for Updating a Car, it has also a Authentication"""
     model = Car
     template_name = 'html/update.html'
-    fields = ['car_name', 'car_model', 'car_description', 'car_color']
+    fields = ['car_name', 'car_model', 'car_description','image', 'car_color']
 
 
 class DeleteCar(LoginRequiredMixin, DeleteView):
     """ This class is responsible for Deleting a Specific Car, it has also a Authentication"""
     model = Car
     template_name = 'html/delete.html'
-    success_url = reverse_lazy('cars')
+    success_url = reverse_lazy('cars_list')

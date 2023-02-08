@@ -12,6 +12,7 @@ class Car(models.Model):
     car_model = models.CharField(max_length=200)
     car_description = models.TextField(max_length=200)
     car_color = models.ForeignKey(CarColor, on_delete=models.CASCADE)
+    image = models.ImageField(null=True, blank=True, upload_to='media', default='imageholder.png')
     date_manufactured = models.DateTimeField(auto_now_add=True)
     
     def get_absolute_url(self):
