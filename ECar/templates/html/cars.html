@@ -11,6 +11,14 @@
         }
     </style>
     <div class='main-container'>
+        
+        {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+        {% endif %}
 
         <div class='post-wrapper'>
             {% for car in cars %}
@@ -35,5 +43,6 @@
                     <h5>No Cars Available Right Now ...</h5>
             {% endfor %}
         </div>
+        <small class="form-text text-muted" align='center'>Cars are sorted Automatically.</small>
     </div>
 {% endblock content %}

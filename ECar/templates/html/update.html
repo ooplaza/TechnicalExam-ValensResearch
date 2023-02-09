@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="main-container">
-    <h3>Update {{ car.car_name }}</h3>
+    <h3>Update <i>"{{ car.car_name }}"</i></h3>
     <form  action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form|crispy }}

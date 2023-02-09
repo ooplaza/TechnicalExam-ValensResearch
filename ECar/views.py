@@ -5,6 +5,7 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib import messages
 
 # Create your views here.
 # Using Class Based View for CRUD Implementation
@@ -56,6 +57,11 @@ class CreateCar(LoginRequiredMixin, CreateView):
     template_name = 'html/create.html'
     fields = ['car_name', 'car_model', 'car_description','car_image', 'car_color']
 
+    def form_valid(self, form):
+        car_name = form.cleaned_data['car_name']
+        messages.success(self.request, f'Your have successfully created "{car_name}" model!')
+        return super().form_valid(form)
+
 
 class UpdateCar(LoginRequiredMixin, UpdateView):
     """ This class is responsible for Updating a Car, it has also a Authentication"""
@@ -63,6 +69,10 @@ class UpdateCar(LoginRequiredMixin, UpdateView):
     template_name = 'html/update.html'
     fields = ['car_name', 'car_model', 'car_description','car_image', 'car_color']
 
+    def form_valid(self, form):
+        car_name = form.cleaned_data['car_name']
+        messages.warning(self.request, f'Your have successfully updated "{car_name}" model!')
+        return super().form_valid(form)
 
 class DeleteCar(LoginRequiredMixin, DeleteView):
     """ This class is responsible for Deleting a Specific Car, it has also a Authentication"""
@@ -70,3 +80,6 @@ class DeleteCar(LoginRequiredMixin, DeleteView):
     template_name = 'html/delete.html'
     success_url = reverse_lazy('cars_list')
     
+    def delete(self, *args, **kwargs):
+        messages.success(self.request, 'Your model was deleted successfully!')
+        return super().delete(self.request, *args, **kwargs)

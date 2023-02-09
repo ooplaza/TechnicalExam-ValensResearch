@@ -13,6 +13,15 @@
 
     </style>
     <div class='main-container'>
+
+        {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+        {% endif %}
+
         <img class='thumbnail' src="{{ car.car_image.url }}" alt="">
         <h1>{{ car.car_name }}</h1>
         <h4>{{ car.car_model }}</h4>

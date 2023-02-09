@@ -1,13 +1,57 @@
 {% load static %}
-<div class="social-links">
-    <div class='media'>
-        <div>
-            <a href="https://web.facebook.com/ooooorl" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/orl.zzz/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://twitter.com/plaza_orly/" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-            <a href="https://github.com/ooooorl" target="_blank"><i class="fa-brands fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/plaza-orly-71a54024a/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-        </div>
+<footer class="text-center text-white" style="background-color: #f1f1f1;">
+    <!-- Grid container -->
+    <div class="container pt-4">
+      <!-- Section: Social media -->
+      <section class="mb-4">
+        <!-- Facebook -->
+        <a
+          class="btn btn-link btn-floating btn-lg text-dark m-1"
+          href="https://web.facebook.com/ooooorl" target="_blank"
+          role="button"
+          data-mdb-ripple-color="dark"
+          ><i class="fab fa-facebook-f"></i
+        ></a>
+
+        <!-- Instagram -->
+        <a
+          class="btn btn-link btn-floating btn-lg text-dark m-1"
+          href="https://www.instagram.com/orl.zzz/" target="_blank"
+          role="button"
+          data-mdb-ripple-color="dark"
+          ><i class="fab fa-instagram"></i
+        ></a>
+
+        <!-- Twitter -->
+        <a
+          class="btn btn-link btn-floating btn-lg text-dark m-1"
+          href="https://twitter.com/plaza_orly/" target="_blank"
+          role="button"
+          data-mdb-ripple-color="dark"
+          ><i class="fab fa-twitter"></i
+        ></a>
+
+        <!-- Github -->
+        <a
+          class="btn btn-link btn-floating btn-lg text-dark m-1"
+          href="https://github.com/ooooorl" target="_blank"
+          role="button"
+          data-mdb-ripple-color="dark"
+          ><i class="fab fa-github"></i
+        ></a>
+
+        <!-- Linkedin -->
+        <a
+          class="btn btn-link btn-floating btn-lg text-dark m-1"
+          href="https://www.linkedin.com/in/plaza-orly-71a54024a/" target="_blank"
+          role="button"
+          data-mdb-ripple-color="dark"
+          ><i class="fab fa-linkedin"></i
+        ></a>
+      
+      </section>
     </div>
-    <p>copyright &copy;2022 | <span>valenslaboratory</span></p>
-</div>
+    <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2009 Copyright | <a class="text-dark" href="{% url 'home' %}"><strong>valenslaboratory</strong></a>
+    </div>
+</footer>
