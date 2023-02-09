@@ -2,14 +2,39 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-<div class="main-container">
-    <h3>Are you sure you want to delete {{ car.car_name }}?</h3>
-    <form action="" method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form|crispy }}
-        <a class="btn btn-outline-info" href="{% url 'car_detail' car.id %}">Cancel</a>
-        <input class='btn btn-danger' type="submit" value="Submit">
-    </form>
+<style type="text/css">
+    html, body {
+        height: 100%;
+    }
+    #page-wrapper {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-color: #eaeaea
+    }
+    #warning-box {
+        max-width: 800px;
+        height: auto;
+        background-color: #fff;
+        border: 1px solid #888;
+        border-radius: 5px;
+        padding: 15px
+    }
+    
+</style>
+
+<div id='page-wrapper'>
+    <div id='warning-box'>
+        <h3>Are you sure you want to delete <h1>{{ car.car_name }}?</h1></h3>
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <a class="btn btn-outline-info" href="{% url 'cars_list' %}">Cancel</a>
+            <input class='btn btn-danger' type="submit" value="Submit">
+        </form>
+    </div>
 </div>
 
 {% endblock content %}

@@ -10,4 +10,5 @@ urlpatterns = [
     path('delete-car/<str:pk>/', views.DeleteCar.as_view(), name='delete_car'),
     path('red-cars/', views.RedCarList.as_view(), name='red_cars'),
     path('blue-cars/', views.BlueCarList.as_view(), name='blue_cars'),
+    path('move-cars/', views.MoveCars.as_view(), name='move_cars')
 ]

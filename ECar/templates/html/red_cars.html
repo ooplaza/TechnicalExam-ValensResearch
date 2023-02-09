@@ -2,15 +2,10 @@
 {% load static %}
 
 {% block content %}
-    <style type="text/css">
-        #id_tags {
-            overflow-y: scroll;
-            max-height: 100px;
-            border-radius: 5px;
-            padding: 5px
-        }
-    </style>
     <div class='main-container'>
+        <div class="greeting-wrapper">
+            <h1>Sorted Red Cars List</h1>
+        </div>
         <div class='post-wrapper'>
             {% for car in cars %}
                 <div>
@@ -21,16 +16,15 @@
                             | <a href="{% url 'update_car' car.id %}">Update</a>
                             | <a href="{% url 'delete_car' car.id %}">Delete</a>
                             <hr>
-                                <span class='tag'>{{ car.car_color }}</span>
+                                <span class='red-tag'>{{ car.car_color }}</span>
                                 <span class='tag'>{{ car.date_manufactured }}</span>
                             <hr>
                         </div>
                     </div>
                 </div>
+                {% empty %}
+                    <h5>No Red Cars Available ...</h5>
             {% endfor %}
         </div>
     </div>
-    <section class="s1">
-        {% include 'html/footer.html' %}
-    </section>
 {% endblock content %}

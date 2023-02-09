@@ -7,7 +7,7 @@
     <form  action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form|crispy }}
-        <a class="btn btn-outline-danger" href="{% url 'car_detail' car.id %}">Cancel</a>
+        <a class="btn btn-outline-danger" href="{% url 'cars_list' %}">Cancel</a>
         <input class='btn btn-info' type="submit" value="Submit">
     </form>
 </div>

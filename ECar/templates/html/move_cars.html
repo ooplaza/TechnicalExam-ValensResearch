@@ -4,7 +4,9 @@
 {% block content %}
     <div class='main-container'>
         <div class="greeting-wrapper">
-            <h1>Sorted Blue Cars List</h1>
+            {% if cars %}
+                <h1>Which Cars would you like to move?</h1>
+            {% endif %}
         </div>
         <div class='post-wrapper'>
             {% for car in cars %}
@@ -16,15 +18,30 @@
                             | <a href="{% url 'update_car' car.id %}">Update</a>
                             | <a href="{% url 'delete_car' car.id %}">Delete</a>
                             <hr>
-                                <span class='blue-tag'>{{ car.car_color }}</span>
+                                <span class='tag'>{{ car.car_color }}</span>
                                 <span class='tag'>{{ car.date_manufactured }}</span>
                             <hr>
                         </div>
                     </div>
                 </div>
                 {% empty %}
-                    <h5>No Blue Cars Available ...</h5>
+                    <h5>No Red Cars Available ...</h5>
             {% endfor %}
         </div>
+
+        {% comment %} Visible is it has a stock of Cars {% endcomment %}
+        {% if cars %}
+            <form method='GET'>
+                <div class="form-row">
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Car 1">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" placeholder="Car 2">
+                </div>
+                <input type="submit" class="button">
+                </div>
+            </form>
+        {% endif %}
     </div>
 {% endblock content %}

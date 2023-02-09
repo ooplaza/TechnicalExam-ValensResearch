@@ -1,16 +1,29 @@
 {% load static %}
-<div class="nav-wrapper">
-    <a href="{% url 'home' %}">
-        <div class="logo-wrapper">
-            <h2>VALENS</h2>
-        </div>
-    </a>
-    <ul id="navigation">
-        {% if request.user.is_authenticated %}
-            <li><a href="{% url 'create_car' %}">Create Car</a></li>
-        {% endif %}
-        <li><a href="{% url 'red_cars' %}">Show Red Cars</a></li>
-        <li><a href="{% url 'blue_cars' %}">Show Blue Cars</a></li>
-    </ul>
 
+<header class="site-header">
+    <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+        <div class="container">
+            <a class="navbar-brand mr-4" href="{% url 'home' %}"><strong>VALENS</strong></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
+                aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarToggle">
+                <div class="navbar-nav mr-auto">
+                    <a class="nav-item nav-link" href="{% url 'home' %}">Home</a>
+                </div>
+                <!-- Navbar Right Side -->
+                <div class="navbar-nav">
+                    <!-- Check if it's authenticated -->
+                    {% if user.is_authenticated %}
+                        <a class="nav-item nav-link" href="{% url 'create_car' %}">Create Car</a>
+                        <a class="nav-item nav-link" href="{% url 'move_cars' %}">Move Car</a>
+                    {% endif %}
+                    <a class="nav-item nav-link" href="{% url 'red_cars' %}">Show Red Cars</a>
+                    <a class="nav-item nav-link" href="{% url 'blue_cars' %}">Show Blue Cars</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
 </div>

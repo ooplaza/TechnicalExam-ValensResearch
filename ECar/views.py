@@ -37,7 +37,11 @@ class BlueCarList(ListView):
     template_name = 'html/blue_cars.html'
     queryset = Car.objects.filter(car_color__colors='Blue')
     context_object_name = 'cars'
-    
+
+class MoveCars(ListView):
+    model = Car
+    template_name = 'html/move_cars.html'
+    context_object_name = 'cars'
     
 class CarDetail(DetailView):
     """ Return a detail view of a specific ECar. """
@@ -50,14 +54,14 @@ class CreateCar(LoginRequiredMixin, CreateView):
     """ This class is responsible for creating a Car, it has also a Authentication"""
     model = Car
     template_name = 'html/create.html'
-    fields = ['car_name', 'car_model', 'car_description','image', 'car_color']
+    fields = ['car_name', 'car_model', 'car_description','car_image', 'car_color']
 
 
 class UpdateCar(LoginRequiredMixin, UpdateView):
     """ This class is responsible for Updating a Car, it has also a Authentication"""
     model = Car
     template_name = 'html/update.html'
-    fields = ['car_name', 'car_model', 'car_description','image', 'car_color']
+    fields = ['car_name', 'car_model', 'car_description','car_image', 'car_color']
 
 
 class DeleteCar(LoginRequiredMixin, DeleteView):
@@ -65,3 +69,4 @@ class DeleteCar(LoginRequiredMixin, DeleteView):
     model = Car
     template_name = 'html/delete.html'
     success_url = reverse_lazy('cars_list')
+    

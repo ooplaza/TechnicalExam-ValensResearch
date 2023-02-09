@@ -13,15 +13,15 @@
 
     </style>
     <div class='main-container'>
-        <img class='thumbnail' src="{{ post.image.url }}" alt="">
+        <img class='thumbnail' src="{{ car.car_image.url }}" alt="">
         <h1>{{ car.car_name }}</h1>
         <h4>{{ car.car_model }}</h4>
         <span class='tag'>{{ car.car_color }}</span>
         <p>
-            {{ car.car_description|linebreaks }}
+            {{ car.car_description }}
             {{ car.date_manufactured }}
         </p>
-        <a href="{% url 'cars_list' %}" class='btn btn-info'>Back</a>
+        <a href="{% url 'cars_list' %}" class='btn btn-outline-danger'>Back</a>
     </div>
 
 {% endblock content %}

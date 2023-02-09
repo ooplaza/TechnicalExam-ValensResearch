@@ -11,11 +11,12 @@
         }
     </style>
     <div class='main-container'>
+
         <div class='post-wrapper'>
             {% for car in cars %}
                 <div>
                     <div class='post'>
-                        <img class='thumbnail' src="{{ car.image.url }}" alt="">
+                        <img class='thumbnail' src="{{ car.car_image.url }}" alt="">
                         <div class='post-preview'>
                             <h6 class='post-title'>{{ car.car_name }}</h6>
                             <a href="{% url 'car_detail' car.id %}">Read More</a>
@@ -31,11 +32,8 @@
                     </div>
                 </div>
                 {% empty %}
-                    <h3>No Cars Available Right Now ...</h3>
+                    <h5>No Cars Available Right Now ...</h5>
             {% endfor %}
         </div>
     </div>
-    <section class="s1">
-        {% include 'html/footer.html' %}
-    </section>
 {% endblock content %}

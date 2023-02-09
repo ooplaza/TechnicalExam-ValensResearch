@@ -40,8 +40,8 @@ INSTALLED_APPS = [
     
     # Newly installed Application
     'crispy_forms',
-    'ECar.apps.EcarConfig',
     'whitenoise.runserver_nostatic',
+    'ECar.apps.EcarConfig',
 ]
 
 MIDDLEWARE = [
@@ -117,6 +117,12 @@ USE_I18N = True
 
 USE_TZ = True
 
+# Image Compression and Caching
+STORAGES = {
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
@@ -135,7 +141,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 
 # Specifying which bootstrap version to be used
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
